@@ -4,8 +4,8 @@ export interface Task{
     description:string;
     status:taskstatus;
 }
- enum taskstatus{
+export enum taskstatus{
     OPEN='OPEN',
     PROGRESS='PROGRESS',
     DONE='DONE'
- }
+}
