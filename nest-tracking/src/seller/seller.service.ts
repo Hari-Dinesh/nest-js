@@ -33,7 +33,7 @@ export class SellerService {
     }
 
     async updateImageField(id:String,image:String):Promise<Seller>{
-        console.log(image);
+        
         
         return await this.sellerModel.findByIdAndUpdate(
             id,
