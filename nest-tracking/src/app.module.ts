@@ -1,9 +1,21 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { SellerModule } from './seller/seller.module';
+import { UserModule } from './users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { user } from './users/users.entity';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://sriharidinesh77:Asdfg123@cluster0.jpkeqp8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'), SellerModule],
+  imports: [UserModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'root',
+      database: 'task-managment',
+      entities: [user],
+      synchronize: true,
+    })
+  ],
   
   
 })
