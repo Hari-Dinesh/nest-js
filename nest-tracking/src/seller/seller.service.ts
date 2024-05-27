@@ -29,6 +29,7 @@ export class SellerService {
     }
 
     async deleteMyProperty(id:string):Promise<Seller>{
+        const data=this.getPropertyById(id)
         return await this.sellerModel.findByIdAndDelete(id)
     }
 
